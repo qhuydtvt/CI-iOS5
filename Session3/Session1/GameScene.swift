@@ -40,7 +40,14 @@ class GameScene: SKScene {
             let previousTouchPosition = touch.previousLocationInNode(self)
             
             // 2 Calculate movement vector and then move the plane by this vector
-            plane.position = currentTouchPosition.subtract(previousTouchPosition).add(plane.position)
+            let move = SKAction.moveTo(currentTouchPosition
+                .subtract(previousTouchPosition)
+                .add(plane.position), duration: 0)
+            plane.runAction(move)
+//            plane.position =
+//                currentTouchPosition
+//                .subtract(previousTouchPosition)
+//                .add(plane.position)
         }
     }
     
